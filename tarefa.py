@@ -14,6 +14,7 @@ class Tarefa:
 
     @classmethod
     def cadastrarTarefa(cls):
+        """ Método que tem como função cadastrar tarefa e salvar em arquivo json. """
         print('\n📌 Insira as informações para cadastrar a tarefa:\n')
 
         titulo = input('☑️  Título: ')
@@ -65,6 +66,7 @@ class Tarefa:
 
     @classmethod
     def listarTarefas(cls):
+        """ Método usado para percorrer a lista de tarefas e imprimir cada uma delas. """
         if not os.path.exists(cls.__arquivo):
             print('\n\033[91mNenhuma tarefa cadastrada!\033[0m ❌')
             return
@@ -94,6 +96,7 @@ class Tarefa:
 
     @classmethod
     def concluirTarefa(cls):
+        """ Método usado para concluir uma tarefa pendente. """
         num = int(input('\n 📌 Digite o número da tarefa que deseja concluir: '))
 
         with open(cls.__arquivo, 'r+', encoding='UTF-8') as arquivo:
@@ -111,6 +114,7 @@ class Tarefa:
 
     @classmethod
     def excluirTarefa(cls):
+        """ Método que tem como função excluir uma tarefa cadastrada na agenda."""
         num = int(input('\n 📌 Digite o número da tarefa que deseja excluir: '))
 
         if not os.path.exists(cls.__arquivo):
